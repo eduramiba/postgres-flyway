@@ -2,7 +2,7 @@
 
 Docker image with postgres and auto-executed flyway migrations for integration testing purposes.
 
-Postgres version: 11.5
+Postgres version: 12
 Flyway version: 6.0.4
 
 # How to use
@@ -10,7 +10,7 @@ Flyway version: 6.0.4
 Inherit from this image in a dockerfile like this:
 
 ```Dockerfile
-FROM eduramiba/postgres-flyway:11.5
+FROM eduramiba/postgres-flyway:12
 
 #jar with migrations in SQL or java
 COPY *.jar /flyway/jars/

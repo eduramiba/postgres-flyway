@@ -1,4 +1,4 @@
-FROM postgres:11.5
+FROM postgres:12
 LABEL maintainer "eduramiba@gmail.com"
 
 ADD https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/6.0.4/flyway-commandline-6.0.4-linux-x64.tar.gz /flyway.tar.gz
