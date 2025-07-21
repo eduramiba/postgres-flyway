@@ -1,9 +1,9 @@
-FROM postgres:17.4
+FROM postgres:17.5
 LABEL maintainer="eduramiba@gmail.com"
 
-ENV FLYWAY_VERSION=11.7.2
+ENV FLYWAY_VERSION=11.10.3
 
-ADD https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${FLYWAY_VERSION}/flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz /flyway.tar.gz
+ADD https://github.com/flyway/flyway/releases/download/flyway-${FLYWAY_VERSION}/flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz /flyway.tar.gz
 RUN tar xvf /flyway.tar.gz
 RUN mv flyway-${FLYWAY_VERSION} flyway
 RUN rm -rf /flyway.tar.gz

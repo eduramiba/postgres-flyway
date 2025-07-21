@@ -2,8 +2,8 @@
 
 Docker image with postgres and auto-executed flyway migrations for integration testing purposes.
 
-Postgres version: 17.4
-Flyway version: 11.7.2
+Postgres version: 17.5
+Flyway version: 11.10.3
 
 # How to use
 
