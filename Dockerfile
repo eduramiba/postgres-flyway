@@ -1,12 +1,19 @@
+ARG FLYWAY_VERSION=12.0.3
+FROM flyway/flyway:${FLYWAY_VERSION} AS flyway
+
 FROM postgres:18.3
 LABEL maintainer="eduramiba@gmail.com"
 
-ENV FLYWAY_VERSION=12.0.3
+ARG FLYWAY_VERSION=12.0.3
+ENV FLYWAY_VERSION=${FLYWAY_VERSION}
 
-ADD https://github.com/flyway/flyway/releases/download/flyway-${FLYWAY_VERSION}/flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz /flyway.tar.gz
-RUN tar xvf /flyway.tar.gz
-RUN mv flyway-${FLYWAY_VERSION} flyway
-RUN rm -rf /flyway.tar.gz
-RUN chmod +x /flyway/flyway
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends openjdk-21-jdk-headless ca-certificates; \
+    rm -rf /var/lib/apt/lists/*
+
+COPY --from=flyway /flyway /flyway
+RUN set -eux; \
+    chmod +x /flyway/flyway
 
 COPY docker-entrypoint.sh /usr/local/bin/
