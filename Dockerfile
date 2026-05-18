@@ -1,10 +1,10 @@
-ARG FLYWAY_VERSION=12.0.3
+ARG FLYWAY_VERSION=12.6.1
 FROM flyway/flyway:${FLYWAY_VERSION} AS flyway
 
-FROM postgres:18.3
+FROM postgres:18.4
 LABEL maintainer="eduramiba@gmail.com"
 
-ARG FLYWAY_VERSION=12.0.3
+ARG FLYWAY_VERSION=12.6.1
 ENV FLYWAY_VERSION=${FLYWAY_VERSION}
 
 RUN set -eux; \
